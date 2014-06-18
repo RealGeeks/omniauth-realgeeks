@@ -1,35 +1,15 @@
-# OmniAuth GitHub
+# OmniAuth RealGeeks
 
-This is the official OmniAuth strategy for authenticating to GitHub. To
-use it, you'll need to sign up for an OAuth2 Application ID and Secret
-on the [GitHub Applications Page](https://github.com/settings/applications).
+This is the official OmniAuth strategy for authenticating against RealGeeks. To
+use it, you'll need to send us an request for an OAuth2 Application ID and Secret
+on the [RealGeeks Support Page](https://www.realgeeks.com/support/).
 
 ## Basic Usage
 
     use OmniAuth::Builder do
-      provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
+      provider :github, ENV['RG_OAUTH_KEY'], ENV['RG_OAUTH_SECRET'],
+scope: :default
     end
-
-## Github Enterprise Usage
-
-    provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'],
-        {
-          :client_options => {
-            :site => 'https://github.YOURDOMAIN.com/api/v3',
-            :authorize_url => 'https://github.YOURDOMAIN.com/login/oauth/authorize',
-            :token_url => 'https://github.YOURDOMAIN.com/login/oauth/access_token',
-          }
-        }
-
-## Scopes
-
-GitHub API v3 lets you set scopes to provide granular access to different types of data: 
-
-	use OmniAuth::Builder do
-      provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], scope: "user,repo,gist"
-    end
-
-More info on [Scopes](http://developer.github.com/v3/oauth/#scopes).
 
 ## License
 
