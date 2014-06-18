@@ -31,17 +31,19 @@ module OmniAuth
 
       info do
         {
+          'name' => raw_info['first_name'] + ' ' + raw_info['last_name'],
           'email' => email,
           'first_name' => raw_info['first_name'],
           'last_name' => raw_info['last_name'],
-          'active_status' => raw_info['active_status'],
-          'is_owner' => raw_info['is_owner'],
-          'super_user' => raw_info['super_user'],
         }
       end
 
       extra do
-        {:raw_info => raw_info}
+        {
+          'active_status' => raw_info['active_status'],
+          'is_owner' => raw_info['is_owner'],
+          'super_user' => raw_info['super_user'],
+        }
       end
 
       def raw_info
